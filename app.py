@@ -10,16 +10,6 @@ app = Flask(__name__)
 SERVER_IP = '192.168.1.85'
 SERVER_MAC = '40.a8.f0.a3.42.83'
 
-def check_server_status():
-    try:
-        requests.get(f'https://{SERVER_IP}', timeout=1)
-        print('Server up')
-        return True
-    except requests.ConnectionError as e:
-        print(e)
-        print('Server down')
-        return False
-
 def is_device_powered_on():
     """
     Check if a device on the local network is powered on.
